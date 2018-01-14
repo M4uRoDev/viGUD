@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">viGUD</string>
+    <string name="welcome_to">Bienvenido a</string>
+    <string name="city_name">Viña del Mar</string>
+    <string name="slide_1_text">A través de ViGud podrás explorar laciudad como nunca antes, vinculándote a puntos de valor cultural y turístico de forma inteligente e interactiva.</string>
+    <string name="slide_2_title">C Ó N E C T A T E</string>
+    <string name="slide_2_text">En tiempo real con eventos, carteleras y notificaciones culturales</string>
+    <string name="slide_3_title">A C C E D E</string>
+    <string name="slide_3_text">A contenidos digitales exclusivos para disfrutar al aire libre</string>
+    <string name="slide_4_title">D E S C U B R E</string>
+    <string name="slide_4_text">Nuevos lugare y experiencias maravillosas en Viña del Mar</string>
+    <string name="slide_5_title">I N T E R A C T Ú A</string>
+    <string name="slide_5_text">Con los terminales inteligentes, juega, aprende y disfruta</string>
+
+    <string name="login_text">BIENVENIDO A VIÑA DEL MAR</string>
+
+    <string name="login_button">INGRESAR</string>
+    <string name="reister_button">REGISTRAR</string>
+    <string name="register_mail_edit">email</string>
+    <string name="register_contrasena_edit">contraseña</string>
+    <string name="register_recontrasena_edit">repita contraseña</string>
+    <string name="forgot_password">¿Olvido contraseña?</string>
+
+    <string name="social_facebook">FACEBOOK</string>
+    <string name="social_google">GOOGLE</string>
+
+    <string name="descript_close_button">close button</string>
+
+    <string name="descript_back_button">back button</string>
+    <string name="descript_config_logo">config logo</string>
+    <string name="title_config">CONFIGURACIÓN</string>
+    <string name="enlace_automatico_title">ENLACE AUTOMÁTICO</string>
+    <string name="enlace_automatico_descript">Vincúlate instantáneamente a los terminales que estén a tu alcance.</string>
+    <string name="alerta_georeferencia_title">NOTIFICACIONES</string>
+    <string name="alerta_georeferencia_decript">Recibe notificaciones georeferenciadas mientras te mueves por la ciudad.</string>
+
+
+    <string name="descript_cartelera_logo">cartelera logo</string>
+    <string name="title_cartelera">CARTELERA</string>
+
+    <string name="title_puntos_vigud">PUNTOS VIGUD</string>
+
+    <string name="loading">CARGANDO...</string>
+
+    <string name="dialog_gps_title">GPS para VIGUD</string>
+    <string name="dialog_gps_message">Esta aplicación requiere de la localización de tu dispositivo para ofrecerte alertas personalizadas. Esto te permitirá experimentar integramente la aplicación.</string>
+    <string name="dialog_gps_accept">Aceptar</string>
+    <string name="dialog_gps_cancel">Cancelar</string>
+</resources>

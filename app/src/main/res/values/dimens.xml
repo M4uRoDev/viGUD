@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_height">70sp</dimen>
+    <dimen name="button_width">150sp</dimen>
+    <dimen name="text_button_size">22sp</dimen>
+</resources>
