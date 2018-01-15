@@ -6,6 +6,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -20,31 +21,45 @@ public class ProximityAlerts extends Service {
     private LocationManager locationManager;
     private static final long MINIMUM_DISTANCECHANGE_FOR_UPDATE = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATE = 1000; // in Milliseconds
+    private boolean active = false;
 
     private static final String PROX_ALERT_INTENT =
             "cl.unab.mauro.androidproximityalertproject.ProxAlertActivity";
 
     public ProximityAlerts() {
+    }
+
+    @SuppressLint("MissingPermission")
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Toast.makeText(this, "Notificaciones Activadas", Toast.LENGTH_LONG).show();
+        active = true;
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        /*
+        locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER,
+                MINIMUM_TIME_BETWEEN_UPDATE,
+                MINIMUM_DISTANCECHANGE_FOR_UPDATE,
+                new MyLocationListener()
+        );*/
         final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 // TODO Auto-generated method stub
                 super.handleMessage(msg);
-                @SuppressLint("MissingPermission") Location location =
-                        locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
                 addProximityAlert();
             }
 
         };
 
 
-        new Thread(new Runnable(){
+        Thread thread = new Thread(new Runnable(){
             public void run() {
                 // TODO Auto-generated method stub
                 while(true)
                 {
                     try {
-                        Thread.sleep(10000);
+                        Thread.sleep(5000);
                         handler.sendEmptyMessage(0);
 
                     } catch (InterruptedException e) {
@@ -55,22 +70,15 @@ public class ProximityAlerts extends Service {
                 }
 
             }
-        }).start();
-    }
+        });
+        if(active){
+            thread.start();
+        }else{
+            thread.stop();
+        }
 
-    @SuppressLint("MissingPermission")
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(this, "service starting", Toast.LENGTH_LONG).show();
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
-        locationManager.requestLocationUpdates(
-                LocationManager.GPS_PROVIDER,
-                MINIMUM_TIME_BETWEEN_UPDATE,
-                MINIMUM_DISTANCECHANGE_FOR_UPDATE,
-                new MyLocationListener()
-        );
-        return super.onStartCommand(intent, flags, startId);
+        return START_NOT_STICKY; //indica que el servicio no debe recrearse al ser destruido sin importar que haya quedado un trabajo pendiente.
     }
 
     @Override
@@ -78,6 +86,15 @@ public class ProximityAlerts extends Service {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        active = false;
+        stopSelf();
+        Toast.makeText(this, "Notificaciones Desactivadas", Toast.LENGTH_LONG).show();
+    }
+
     public class MyLocationListener implements LocationListener {
         public void onLocationChanged(Location location) {
         }

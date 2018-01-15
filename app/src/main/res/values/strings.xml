@@ -46,4 +46,6 @@
     <string name="dialog_gps_message">Esta aplicación requiere de la localización de tu dispositivo para ofrecerte alertas personalizadas. Esto te permitirá experimentar integramente la aplicación.</string>
     <string name="dialog_gps_accept">Aceptar</string>
     <string name="dialog_gps_cancel">Cancelar</string>
+
+    <string name="switch_notification">switch_notification</string>
 </resources>
