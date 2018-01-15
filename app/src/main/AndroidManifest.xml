@@ -55,7 +55,7 @@
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".ProximityAlertService"
+            android:name=".ProximityAlerts"
             android:enabled="true"
             android:exported="true"></service>
     </application>
