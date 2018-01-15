@@ -23,11 +23,11 @@ public class ConfigActivity extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if(b){
                     Toast.makeText(getApplicationContext(), "Servicio Activado", Toast.LENGTH_LONG).show();
-                    Intent alert_proximidad = new Intent(ConfigActivity.this, ProximityAlertService.class);
+                    Intent alert_proximidad = new Intent(ConfigActivity.this, ProximityAlerts.class);
                     startService(alert_proximidad);
                 }else if(!b){
                     Toast.makeText(getApplicationContext(), "Servicio desactivado",Toast.LENGTH_LONG).show();
-                    Intent alert_proximidad = new Intent(ConfigActivity.this, ProximityAlertService.class);
+                    Intent alert_proximidad = new Intent(ConfigActivity.this, ProximityAlerts.class);
                     stopService(alert_proximidad);
                 }
             }
