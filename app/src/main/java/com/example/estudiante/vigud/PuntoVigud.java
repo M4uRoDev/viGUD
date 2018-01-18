@@ -5,4 +5,5 @@ package com.example.estudiante.vigud;
  */
 
 public class PuntoVigud {
+
 }

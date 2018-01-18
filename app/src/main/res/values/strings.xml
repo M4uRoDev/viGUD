@@ -38,6 +38,17 @@
     <string name="descript_cartelera_logo">cartelera logo</string>
     <string name="title_cartelera">CARTELERA</string>
 
+    <string name="descript_event_img">img evento</string>
+
+    <!-- MODO EJEMPLO EVENTO -->
+    <string name="title_evento">LUIS JARA @ ENJOY VIÑA</string>
+    <string name="detail_evento">18 NOV / 9PM / $5.000 </string>
+    <string name="desc_evento">Luego del arrollador éxito en el Movistar Arena, que congregó a más de 11.000 en un concierto inolvidabe, Luis Jara vuelve presentar sus más grandes y reconocidas canciones en Enjoy Viña del Mar.</string>
+
+    <string name="btn_agendar">AGENDAR</string>
+    <string name="btn_comprar_entrada">COMPRAR ENTRADA</string>
+    <string name="btn_ir">IR</string>
+
     <string name="title_puntos_vigud">PUNTOS VIGUD</string>
 
     <string name="loading">CARGANDO...</string>

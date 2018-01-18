@@ -8,6 +8,7 @@
     tools:context="com.example.estudiante.vigud.PrincipalActivity">
 
     <TextView
+        android:id="@+id/debug"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/metropolis_extrabold"

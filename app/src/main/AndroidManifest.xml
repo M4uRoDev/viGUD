@@ -57,7 +57,10 @@
         <service
             android:name=".ProximityAlerts"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".EventActivity"
+            android:theme="@style/FullscreenTheme" />
     </application>
 
 </manifest>

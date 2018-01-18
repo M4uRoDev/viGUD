@@ -33,27 +33,27 @@ public class ProximityAlerts extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Notificaciones Activadas", Toast.LENGTH_LONG).show();
-        active = true;
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        /*
+        addProximityAlert();
+
         locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATE,
                 MINIMUM_DISTANCECHANGE_FOR_UPDATE,
                 new MyLocationListener()
-        );*/
-        final Handler handler = new Handler() {
+        );
+        /*final Handler handler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 // TODO Auto-generated method stub
                 super.handleMessage(msg);
-                addProximityAlert();
+
             }
 
         };
 
 
-        Thread thread = new Thread(new Runnable(){
+        new Thread(new Runnable(){
             public void run() {
                 // TODO Auto-generated method stub
                 while(true)
@@ -61,6 +61,10 @@ public class ProximityAlerts extends Service {
                     try {
                         Thread.sleep(5000);
                         handler.sendEmptyMessage(0);
+                        if(!active){
+                            break;
+                            //Thread.interrupted();
+                        }
 
                     } catch (InterruptedException e) {
                         // TODO Auto-generated catch block
@@ -70,14 +74,7 @@ public class ProximityAlerts extends Service {
                 }
 
             }
-        });
-        if(active){
-            thread.start();
-        }else{
-            thread.stop();
-        }
-
-
+        }).start();*/
         return START_NOT_STICKY; //indica que el servicio no debe recrearse al ser destruido sin importar que haya quedado un trabajo pendiente.
     }
 
