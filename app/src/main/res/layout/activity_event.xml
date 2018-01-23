@@ -20,8 +20,8 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="160dp"
-        android:layout_height="150dp"
+        android:layout_width="277dp"
+        android:layout_height="148dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="80dp"
@@ -29,17 +29,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_evento" />
+        app:srcCompat="@drawable/img_cartelera_rioja1" />
 
     <TextView
         android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="265dp"
+        android:layout_height="45dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="@font/metropolis_semibold"
         android:text="@string/title_evento"
+        android:textAlignment="center"
         android:textColor="@color/blank"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"

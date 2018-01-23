@@ -3,8 +3,10 @@ package com.example.estudiante.vigud;
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.annotation.NonNull;
@@ -20,6 +22,16 @@ public class LoadingActivity extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
+
+        //CONSULTAMOS POR CONFIGURACION GUARDADA
+        Context context = getApplicationContext();
+        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
+        boolean switch_alerta_georeferenciada = sharedPref.getBoolean(getString(R.string.switch_notification), false);
+        //LEVANTAMOS SERVICIOS EN CASO DE QUE SE ENCUENTRE ACTIVA.
+        if(switch_alerta_georeferenciada){
+            Intent alert_proximidad = new Intent(getApplicationContext(), ProximityAlerts.class);
+            startService(alert_proximidad);
+        }
         Thread timer = new Thread(){
             public void run(){
                 try{
@@ -35,6 +47,7 @@ public class LoadingActivity extends AppCompatActivity{
             }
         };
         timer.start();
+
 
 
 
@@ -81,7 +94,7 @@ public class LoadingActivity extends AppCompatActivity{
         AlertDialog.Builder myBuild = new AlertDialog.Builder(this);
         myBuild.setMessage(R.string.dialog_gps_message);
         myBuild.setTitle(R.string.dialog_gps_title);
-        myBuild.setIcon(R.drawable.ic_warning_black_24dp);
+        myBuild.setIcon(R.drawable.dialog);
         myBuild.setPositiveButton(R.string.dialog_gps_accept, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

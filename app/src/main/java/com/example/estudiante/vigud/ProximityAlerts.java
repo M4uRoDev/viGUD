@@ -18,13 +18,15 @@ import android.widget.Toast;
 
 public class ProximityAlerts extends Service {
 
-    private LocationManager locationManager;
+    private LocationManager locationManager, locationManager2;
     private static final long MINIMUM_DISTANCECHANGE_FOR_UPDATE = 1; // in Meters
     private static final long MINIMUM_TIME_BETWEEN_UPDATE = 1000; // in Milliseconds
     private boolean active = false;
 
     private static final String PROX_ALERT_INTENT =
             "cl.unab.mauro.androidproximityalertproject.ProxAlertActivity";
+    private static final String PROX_CARTELERA_ALERT_INTENT =
+            "cl.unab.mauro.androidproximityalertproject.ProxAlertCarteleraActivity";
 
     public ProximityAlerts() {
     }
@@ -34,47 +36,16 @@ public class ProximityAlerts extends Service {
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this, "Notificaciones Activadas", Toast.LENGTH_LONG).show();
         locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        locationManager2 = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         addProximityAlert();
+        addProximityCarteleraAlert();
 
-        locationManager.requestLocationUpdates(
+        /*locationManager.requestLocationUpdates(
                 LocationManager.GPS_PROVIDER,
                 MINIMUM_TIME_BETWEEN_UPDATE,
                 MINIMUM_DISTANCECHANGE_FOR_UPDATE,
                 new MyLocationListener()
-        );
-        /*final Handler handler = new Handler() {
-            @Override
-            public void handleMessage(Message msg) {
-                // TODO Auto-generated method stub
-                super.handleMessage(msg);
-
-            }
-
-        };
-
-
-        new Thread(new Runnable(){
-            public void run() {
-                // TODO Auto-generated method stub
-                while(true)
-                {
-                    try {
-                        Thread.sleep(5000);
-                        handler.sendEmptyMessage(0);
-                        if(!active){
-                            break;
-                            //Thread.interrupted();
-                        }
-
-                    } catch (InterruptedException e) {
-                        // TODO Auto-generated catch block
-                        e.printStackTrace();
-                    }
-
-                }
-
-            }
-        }).start();*/
+        );*/
         return START_NOT_STICKY; //indica que el servicio no debe recrearse al ser destruido sin importar que haya quedado un trabajo pendiente.
     }
 
@@ -107,18 +78,11 @@ public class ProximityAlerts extends Service {
         Intent intent = new Intent(PROX_ALERT_INTENT);
         PendingIntent proximityIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
         //set data proximity coordenates
-            //PALACIO RIOJA
-                //long POINT_RADIUS = 60; // in Meters
-                //long PROX_ALERT_EXPIRATION = -1;
-                //double latitude = -33.0206282;
-                //double longitude = -71.5465233;
             //UNAB
                 long POINT_RADIUS = 70;
                 long PROX_ALERT_EXPIRATION = -1;
                 double latitude = -33.013234;
                 double longitude = -71.541238;
-
-
         locationManager.addProximityAlert(
                 latitude, // the latitude of the central point of the alert region
                 longitude, // the longitude of the central point of the alert region
@@ -126,10 +90,29 @@ public class ProximityAlerts extends Service {
                 PROX_ALERT_EXPIRATION, // time for this proximity alert, in milliseconds, or -1 to indicate no expiration
                 proximityIntent // will be used to generate an Intent to fire when entry to or exit from the alert region is detected
         );
-
         IntentFilter filter = new IntentFilter(PROX_ALERT_INTENT);
         registerReceiver(new ProximityIntentReceiver(), filter);
+    }
+    @SuppressLint("MissingPermission")
+    private void addProximityCarteleraAlert() {
+        Intent intent = new Intent(PROX_CARTELERA_ALERT_INTENT);
+        PendingIntent proximityIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        //set data proximity coordenates
+        //PALACIO RIOJA
+        long POINT_RADIUS = 60; // in Meters
+        long PROX_ALERT_EXPIRATION = -1;
+        double latitude = -33.0206282;
+        double longitude = -71.5465233;
 
+        locationManager2.addProximityAlert(
+                latitude, // the latitude of the central point of the alert region
+                longitude, // the longitude of the central point of the alert region
+                POINT_RADIUS, // the radius of the central point of the alert region, in meters
+                PROX_ALERT_EXPIRATION, // time for this proximity alert, in milliseconds, or -1 to indicate no expiration
+                proximityIntent // will be used to generate an Intent to fire when entry to or exit from the alert region is detected
+        );
+        IntentFilter filter = new IntentFilter(PROX_CARTELERA_ALERT_INTENT);
+        registerReceiver(new ProximityCarteleraReceiver(), filter);
     }
 
 

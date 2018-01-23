@@ -17,8 +17,8 @@ public class ConfigActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_config);
-
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        Context context = getApplicationContext();
+        SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
         final SharedPreferences.Editor editor = sharedPref.edit();
 
         alerta_georeferenciada = (Switch)findViewById(R.id.switch_alertas_georeferenciadas);
