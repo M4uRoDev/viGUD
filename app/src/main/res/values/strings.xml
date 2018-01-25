@@ -61,4 +61,8 @@
     <string name="switch_notification">switch_notification</string>
 
     <string name="preference_file_key">config_app</string>
+
+    <string name="title_palacio_rioja">PALACIO RIOJA</string>
+    <string name="descript_palacio_rioja">Museo de época, que da testimonio de la arquitectura y mobiliario vigentes en Chile a comienzos del siglo XX, así como de estilo propio de ricos comerciantes de esos años. Su construcción es de estilo neoclásico francés, fue la residencia de la familia Rioja.</string>
 </resources>
+

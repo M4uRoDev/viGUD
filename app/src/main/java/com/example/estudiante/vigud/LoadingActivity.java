@@ -17,7 +17,6 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 public class LoadingActivity extends AppCompatActivity{
-    final Intent i = new Intent(this, PrincipalActivity.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -23,12 +23,15 @@ public class MenuActivity extends AppCompatActivity {
 
 
     TextView menuText;
+    ImageButton vigudOn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         final CarouselPicker carouselPicker = (CarouselPicker) findViewById(R.id.menuCarousel);
 
+        vigudOn = (ImageButton)findViewById(R.id.imageButton7);
 
         menuText = (TextView)findViewById(R.id.textMenu);
 
@@ -49,7 +52,17 @@ public class MenuActivity extends AppCompatActivity {
             }
         });
 
+        proximityListener bv = new proximityListener();
+        bv.setListener(new proximityListener.ChangeListener() {
+            @Override
+            public void onChange() {
+                vigudOn.setVisibility(View.VISIBLE);
+            }
+        });
+
+
     }
+
 
 
     public void goToConfig(View view){

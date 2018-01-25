@@ -9,9 +9,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.media.RingtoneManager;
+import android.os.StrictMode;
 import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -31,12 +33,16 @@ public class PrincipalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         final int[] pressConfig = {5};
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
+        }
         debug = (TextView)findViewById(R.id.debug);
 
         debug.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pressConfig[0] == 0){
+                /*if(pressConfig[0] == 0){
                     AlertDialog.Builder builder = new AlertDialog.Builder(PrincipalActivity.this);
 
                     final EditText textoBusqueda = new EditText(PrincipalActivity.this);
@@ -54,6 +60,13 @@ public class PrincipalActivity extends AppCompatActivity {
 
                 }
                 pressConfig[0] = pressConfig[0] - 1;
+*/
+                ClienteXMPP lala = new ClienteXMPP();
+                lala.conectar();
+                if(lala.temperatura() != null){
+                    Log.e("Temperatura:",lala.temperatura());
+                }
+
             }
         });
 
