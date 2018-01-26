@@ -64,7 +64,7 @@
             android:name=".EventActivity"
             android:theme="@style/FullscreenTheme" />
         <activity
-            android:name=".PuntoVigud"
+            android:name=".PuntoVigudActivity"
             android:theme="@style/FullscreenTheme" />
     </application>
 

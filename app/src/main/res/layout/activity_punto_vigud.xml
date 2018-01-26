@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.estudiante.vigud.PuntoVigud"
+    tools:context="com.example.estudiante.vigud.PuntoVigudActivity"
     android:background="@drawable/bg_cartelera">
 
     <ImageView
@@ -43,6 +43,7 @@
         android:layout_marginTop="92dp"
         android:background="@drawable/back_button"
         android:contentDescription="@string/descript_close_button"
+        android:onClick="goToBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -50,7 +51,7 @@
         android:id="@+id/textView14"
         android:layout_width="199dp"
         android:layout_height="68dp"
-        android:layout_marginBottom="260dp"
+        android:layout_marginBottom="272dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:fontFamily="@font/metropolis_extrabold"
@@ -103,4 +104,53 @@
         android:textColor="@color/blank"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageButton6" />
+
+    <ImageButton
+        android:id="@+id/imageButton8"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginStart="108dp"
+        android:background="@drawable/btn_material_exclusivo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton10"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="108dp"
+        android:background="@drawable/btn_palmario_elena"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/metropolis_semibold"
+        android:text="MATERIAL EXCLUSIVO"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_light"
+        android:textSize="8sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton8" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="60dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="108dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="@font/metropolis_semibold"
+        android:text="JUEGOS VIGUD"
+        android:textAlignment="center"
+        android:textColor="@color/blank"
+        android:textSize="8sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton10" />
+
 </android.support.constraint.ConstraintLayout>

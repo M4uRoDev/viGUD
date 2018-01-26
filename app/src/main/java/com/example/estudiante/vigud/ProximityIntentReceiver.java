@@ -15,6 +15,8 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 /**
  * Created by Estudiante on 15/01/2018.
  */
@@ -68,6 +70,8 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
             builder.setLargeIcon(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.notification_flat));
             builder.setContentTitle("Nueva Cartelera de Palacio Rioja");
             builder.setContentText("Estás cerca del palacio, puedes actualizar la cartelera de eventos.");
+            builder.setColor(0xffF1991C);
+            builder.setLights(0xffF1991C, 1000, 1000);
             builder.addAction(new NotificationCompat.Action(
                     R.drawable.ic_done_black_24dp,
                     "Si, actualizar",
@@ -77,8 +81,9 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
                     "No actualizar",
                     PendingIntent.getActivity(context, 0, intents, PendingIntent.FLAG_UPDATE_CURRENT)));
             notificationManager.notify(NOTIFICATION_ID,builder.build());
-            proximityListener pL = new proximityListener();
-            pL.setBoo(true);
+
+            MenuActivity.booleanVariable.setVariable(true);
+
         }
     }
 

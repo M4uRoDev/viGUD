@@ -7,27 +7,27 @@ package com.example.estudiante.vigud;
 
 public class proximityListener {
 
-    private boolean boo = false;
-    private ChangeListener listener;
+    public boolean initialised = false;
+    private onValueChangeListener valueChangeListener;
 
-    public boolean isBoo() {
-        return boo;
+    public boolean isInitialised() {
+        return initialised;
     }
 
-    public void setBoo(boolean boo) {
-        this.boo = boo;
-        if (listener != null) listener.onChange();
+    public void setVariable(boolean value) {
+        initialised = value;
+        if (valueChangeListener != null) valueChangeListener.onChange();
     }
 
-    public ChangeListener getListener() {
-        return listener;
+    public onValueChangeListener getValueChangeListener() {
+        return valueChangeListener;
     }
 
-    public void setListener(ChangeListener listener) {
-        this.listener = listener;
+    public void setValueChangeListener(onValueChangeListener valueChangeListener) {
+        this.valueChangeListener = valueChangeListener;
     }
 
-    public interface ChangeListener {
+    public interface onValueChangeListener {
         void onChange();
     }
 

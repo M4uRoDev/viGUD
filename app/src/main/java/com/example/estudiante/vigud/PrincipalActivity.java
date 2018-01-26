@@ -61,12 +61,12 @@ public class PrincipalActivity extends AppCompatActivity {
                 }
                 pressConfig[0] = pressConfig[0] - 1;
 */
-                ClienteXMPP lala = new ClienteXMPP();
+                //CLIENTE XMPP
+                /*ClienteXMPP lala = new ClienteXMPP();
                 lala.conectar();
                 if(lala.temperatura() != null){
                     Log.e("Temperatura:",lala.temperatura());
-                }
-
+                }*/
             }
         });
 

@@ -51,8 +51,6 @@ public class ConfigActivity extends AppCompatActivity {
     }
 
     public void goToBack(View view){
-        Intent goBack = new Intent(ConfigActivity.this, MenuActivity.class);
-        startActivity(goBack);
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
         finish();
     }
