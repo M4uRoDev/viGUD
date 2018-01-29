@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:padding="5dp">
+
+    <ImageButton
+        android:id="@+id/image_slide_menu"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/btn_puntos_vigud_minldpi"
+        android:contentDescription="@string/menu_desc" />
+
+    <TextView
+        android:id="@+id/heading_slide_menu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:allowUndo="false"
+        android:fontFamily="@font/metropolis_semibold"
+        android:text="@string/title_puntos_vigud"
+        android:textAlignment="center"
+        android:textColor="@color/blank"
+        android:textSize="24sp" />
+</RelativeLayout>

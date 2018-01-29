@@ -19,6 +19,10 @@ public class proximityListener {
         if (valueChangeListener != null) valueChangeListener.onChange();
     }
 
+    public boolean getVariable(){
+        return initialised;
+    }
+
     public onValueChangeListener getValueChangeListener() {
         return valueChangeListener;
     }

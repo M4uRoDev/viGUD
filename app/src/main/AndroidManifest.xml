@@ -18,28 +18,36 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".PrincipalActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".DefaultIntro"
+            android:screenOrientation="portrait"
             android:label="Intro Label"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".RegisterActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".LoginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".MenuActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".ConfigActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".CarteleraActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".Splash"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -49,22 +57,27 @@
         </activity>
         <activity
             android:name=".LoadingActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
 
         <service
             android:name=".GPSService"
+            android:screenOrientation="portrait"
             android:enabled="true"
             android:exported="true" />
         <service
             android:name=".ProximityAlerts"
+            android:screenOrientation="portrait"
             android:enabled="true"
             android:exported="true" />
 
         <activity
             android:name=".EventActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".PuntoVigudActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
     </application>
 

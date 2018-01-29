@@ -7,24 +7,20 @@
     android:background="@drawable/bg_menu"
     tools:context="com.example.estudiante.vigud.MenuActivity">
 
-    <com.ldealmei.libs.carousel.CarouselPicker
+    <android.support.v4.view.ViewPager
         android:id="@+id/menuCarousel"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:displayIndicator="true"
-        app:customIndicator="@drawable/ic_indicator"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.476"
-        app:customDescriptionColor="@color/blank"
-        app:customIndicatorColor="@color/blank"
-        app:customIndicatorSize="@dimen/text_button_size"/>/>
+        app:layout_constraintVertical_bias="0.45" />
 
 
 
@@ -81,14 +77,28 @@
         android:id="@+id/imageButton7"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:background="@drawable/vincular"
         android:contentDescription="@string/app_name"
-        android:onClick="goToPuntoVigud"
-        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/dotsLayout"
+        android:layout_width="63dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.531"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menuCarousel"
+        app:layout_constraintVertical_bias="0.0"></LinearLayout>
 </android.support.constraint.ConstraintLayout>

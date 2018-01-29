@@ -38,8 +38,8 @@ public class ProximityAlerts extends Service {
         IntentFilter filter = new IntentFilter(PROX_ALERT_INTENT);
         registerReceiver(new ProximityIntentReceiver(), filter);
 
-        setProximityAlert(-33.013234,-71.541238,70f,300000,1,1);
-        setProximityAlert(-33.0206282,-71.5465233,60f,300000,2,2 );
+        setProximityAlert(-33.020758,-71.547234,25f,300000,1,1);
+        setProximityAlert(-33.02063,-71.54652,45f,300000,2,2 );
 
         return START_NOT_STICKY; //indica que el servicio no debe recrearse al ser destruido sin importar que haya quedado un trabajo pendiente.
     }
