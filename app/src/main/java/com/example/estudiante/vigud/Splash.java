@@ -1,6 +1,7 @@
 package com.example.estudiante.vigud;
 
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.Animation;
@@ -15,6 +16,7 @@ public class Splash extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
 
         welcome = (TextView)findViewById(R.id.textView5);
         city = (TextView)findViewById(R.id.textView6);
@@ -41,5 +43,6 @@ public class Splash extends AppCompatActivity {
             }
         };
         timer.start();
+
     }
 }

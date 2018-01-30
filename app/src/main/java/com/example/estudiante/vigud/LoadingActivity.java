@@ -39,7 +39,9 @@ public class LoadingActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
                 finally {
+
                     if(!solicitar_permisos()){
+
                         goToMenu();
                     }
                 }

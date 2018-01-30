@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature android:name="android.hardware.location.gps" />
 
@@ -22,8 +22,8 @@
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".DefaultIntro"
-            android:screenOrientation="portrait"
             android:label="Intro Label"
+            android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".RegisterActivity"
@@ -62,14 +62,14 @@
 
         <service
             android:name=".GPSService"
-            android:screenOrientation="portrait"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
         <service
             android:name=".ProximityAlerts"
-            android:screenOrientation="portrait"
             android:enabled="true"
-            android:exported="true" />
+            android:exported="true"
+            android:screenOrientation="portrait" />
 
         <activity
             android:name=".EventActivity"
@@ -79,6 +79,11 @@
             android:name=".PuntoVigudActivity"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme" />
+
+        <service
+            android:name=".XMPPService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
