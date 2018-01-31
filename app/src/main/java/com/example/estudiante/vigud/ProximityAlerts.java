@@ -39,7 +39,7 @@ public class ProximityAlerts extends Service {
         registerReceiver(new ProximityIntentReceiver(), filter);
 
         setProximityAlert(-33.020758,-71.547234,25f,300000,1,1);
-        setProximityAlert(-33.02063,-71.54652,45f,300000,2,2 );
+        setProximityAlert(-33.020787, -71.546043,60f,300000,2,2 );
 
         return START_NOT_STICKY; //indica que el servicio no debe recrearse al ser destruido sin importar que haya quedado un trabajo pendiente.
     }

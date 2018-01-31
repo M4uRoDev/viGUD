@@ -4,7 +4,9 @@ package com.example.estudiante.vigud;
  * Created by Estudiante on 30/01/2018.
  */
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import org.jivesoftware.smack.ConnectionConfiguration;
 import org.jivesoftware.smack.SmackException;
@@ -20,7 +22,11 @@ import org.jxmpp.jid.EntityFullJid;
 import org.jxmpp.jid.impl.JidCreate;
 import org.jxmpp.stringprep.XmppStringprepException;
 
+import java.io.BufferedReader;
+import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.Socket;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,6 +38,8 @@ public class ClientXMPP {
     static String contrasena = null;
     static String dominio = null;
     ChatManager chatManager = null;
+
+    Context context = null;
 
 
     public ClientXMPP(){
@@ -61,7 +69,37 @@ public class ClientXMPP {
 
     }
 
-    public boolean conectar(){
+    public void listenerMessage(boolean status){
+
+        String sentence;
+        String modifiedSentence;
+        BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
+
+        Socket clientSocket = null;
+        try {
+            clientSocket = new Socket("127.0.0.1", 6001);
+            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+            BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+
+            //modifiedSentence = inFromServer.readLine();
+            outToServer.writeBytes(status + "");
+            //System.out.println("Estmos enviando " + status);
+
+            Log.e("SocketClient: ", ""+status);
+
+            /*Toast.makeText(this.context,
+                    "Enviando por socket a Unity",
+                    Toast.LENGTH_SHORT).show();*/
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    public boolean conectar(Context context) {
+        this.context = context;
         conexion = new XMPPTCPConnection(configBuilder.build());
         boolean exito = false;
         try {
@@ -72,6 +110,7 @@ public class ClientXMPP {
         }catch (SmackException | IOException | XMPPException | InterruptedException ex){
             Logger.getLogger(getClass().getName()).log(Level.SEVERE, null, ex);
         }
+        /*
         if(exito){
             chatManager.addChatListener(new ChatManagerListener() {
                 @Override
@@ -81,16 +120,18 @@ public class ClientXMPP {
                         public void processMessage(Chat chat, Message message) {
                             if (message.getBody().toString().trim().contains("kinect:true")){
                                 Log.e("KINECT: ", "TRUE");
+                                listenerMessage(true);
                             }
                             if (message.getBody().toString().trim().contains("kinect:false")){
                                 Log.e("KINECT: ", "FALSE");
+                                listenerMessage(false);
                             }
 
                         }
                     });
                 }
             });
-        }
+        }*/
         return exito;
     }
 

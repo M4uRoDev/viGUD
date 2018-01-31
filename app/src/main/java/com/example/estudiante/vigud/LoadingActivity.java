@@ -22,6 +22,7 @@ public class LoadingActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
+
         //CONSULTAMOS POR CONFIGURACION GUARDADA
         Context context = getApplicationContext();
         SharedPreferences sharedPref = context.getSharedPreferences(getString(R.string.preference_file_key), Context.MODE_PRIVATE);
@@ -39,9 +40,7 @@ public class LoadingActivity extends AppCompatActivity{
                     e.printStackTrace();
                 }
                 finally {
-
                     if(!solicitar_permisos()){
-
                         goToMenu();
                     }
                 }

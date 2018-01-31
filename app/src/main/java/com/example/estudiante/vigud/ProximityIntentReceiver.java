@@ -42,8 +42,8 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
                     (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
 
             NotificationCompat.BigTextStyle bigText = new NotificationCompat.BigTextStyle();
-            bigText.bigText("Aproximaciones a la literatura a través de grandes escritores, a cargo del profesor Adelmo Yori, el cual analizará en conjunto a los participantes \"Voces femeninas chilenas del siglo XX: de Gabriela Mistral a Teresa Calderón\".");
-            bigText.setSummaryText("Evento en Palacio Rioja");
+            bigText.bigText("El destacado escritor chileno Pablo Simonetti presentará en el Centro Cultural Palacio Rioja en Viña del Mar su última novela titulada \"Desastres naturales\"...");
+            bigText.setSummaryText("Pablo Simenotti");
             NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
             builder.setSmallIcon(R.drawable.notification_flat);
             builder.setBadgeIconType(R.drawable.notification_flat);
@@ -54,7 +54,7 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
             builder.setGroupSummary(true);
             builder.setVibrate(new long[] {1000,1000,1000,1000});
             builder.setLargeIcon(BitmapFactory.decodeResource(Resources.getSystem(),R.drawable.notification_flat));
-            builder.setContentTitle("Lecturas de Palacio");
+            builder.setContentTitle("Palacio Rioja");
             builder.setStyle(bigText);
             notificationManager.notify(NOTIFICATION_ID,builder.build());
         }else if (eventID == 2){
@@ -63,7 +63,7 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
             Boolean entering = intent.getBooleanExtra(key, false);
 
             if (entering) {
-                Intent intents = new Intent(context, EventActivity.class);
+                Intent intents = new Intent(context, PuntoVigudActivity.class);
                 PendingIntent pendingIntent = PendingIntent.getActivity(context,0,intents,0);
 
                 NotificationManager notificationManager =
@@ -83,20 +83,12 @@ public class ProximityIntentReceiver extends BroadcastReceiver {
                 builder.setContentText("Estás cerca del palacio, puedes actualizar la cartelera de eventos.");
                 builder.setColor(0xffF1991C);
                 builder.setLights(0xffF1991C, 1000, 1000);
-                builder.addAction(new NotificationCompat.Action(
-                        R.drawable.ic_done_black_24dp,
-                        "Si, actualizar",
-                        PendingIntent.getActivity(context, 0, intents, PendingIntent.FLAG_UPDATE_CURRENT)));
-                builder.addAction(new NotificationCompat.Action(
-                        R.drawable.ic_cancel_black_24dp,
-                        "No actualizar",
-                        PendingIntent.getActivity(context, 0, intents, PendingIntent.FLAG_UPDATE_CURRENT)));
                 notificationManager.notify(NOTIFICATION_ID,builder.build());
-                Toast.makeText(context, "Punto VIGUD cerca", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "¡Estás cerca de un Punto Vigud!", Toast.LENGTH_LONG).show();
                 MenuActivity.booleanVariable.setVariable(true);
             }
             else {
-                Toast.makeText(context, "Punto VIGUD lejos", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "¡Te estás alejando del Punto Vigud!", Toast.LENGTH_LONG).show();
                 MenuActivity.booleanVariable.setVariable(false);
             }
 

@@ -104,7 +104,6 @@ public class MenuActivity extends AppCompatActivity {
         @Override
         public void onPageSelected(int position) {
             addDotsIndicator(position);
-            Toast.makeText(getApplicationContext(), ""+position, Toast.LENGTH_LONG).show();
         }
 
         @Override

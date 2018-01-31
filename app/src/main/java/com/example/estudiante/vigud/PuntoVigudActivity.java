@@ -1,9 +1,11 @@
 package com.example.estudiante.vigud;
 
+import android.content.Intent;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -24,8 +26,10 @@ import okhttp3.Response;
 
 public class PuntoVigudActivity extends AppCompatActivity {
 
-    ImageButton btnTemp;
-    TextView textTemp;
+    ImageButton btnTemp, btnJuego;
+    TextView textTemp, textJuego;
+
+    Boolean inicioJuego = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +37,59 @@ public class PuntoVigudActivity extends AppCompatActivity {
         setContentView(R.layout.activity_punto_vigud);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        btnJuego = (ImageButton)findViewById(R.id.imageButton10);
+        textJuego = (TextView)findViewById(R.id.textView18);
+
+        btnJuego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!inicioJuego) {
+                    inicioJuego = true;
+                    Thread timer = new Thread() {
+                        public void run() {
+                            try {
+                                //LEVANTAMOS SERVICIO XMPP
+                                Intent xmpp = new Intent(PuntoVigudActivity.this, XMPPService.class);
+                                startService(xmpp);
+                                sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } finally {
+                                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.Company.Plantamon_Go");
+                                startActivity(launchIntent);
+                            }
+                        }
+                    };
+                    timer.start();
+                }
+            }
+        });
+
+        textJuego.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(!inicioJuego) {
+                    inicioJuego = true;
+                    Thread timer = new Thread() {
+                        public void run() {
+                            try {
+                                //LEVANTAMOS SERVICIO XMPP
+                                Intent xmpp = new Intent(PuntoVigudActivity.this, XMPPService.class);
+                                startService(xmpp);
+                                sleep(3000);
+                            } catch (InterruptedException e) {
+                                e.printStackTrace();
+                            } finally {
+                                Intent launchIntent = getPackageManager().getLaunchIntentForPackage("com.Company.Plantamon_Go");
+                                startActivity(launchIntent);
+                            }
+                        }
+                    };
+                    timer.start();
+                }
+            }
+        });
 
 
         btnTemp = (ImageButton)findViewById(R.id.btn_temperatura);

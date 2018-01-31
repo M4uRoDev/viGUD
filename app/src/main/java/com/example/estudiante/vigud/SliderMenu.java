@@ -1,6 +1,7 @@
 package com.example.estudiante.vigud;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -65,7 +66,19 @@ public class SliderMenu extends PagerAdapter {
         slideImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(context, slide_heading[position ], Toast.LENGTH_LONG).show();
+                if(slide_heading[position].equalsIgnoreCase("DESCUBRIR")){
+                    Intent goToDescubrir = new Intent(context, DescubrirActivity.class);
+                    context.startActivity(goToDescubrir);
+                }else if(slide_heading[position].equalsIgnoreCase("PUNTOS VIGUD")){
+                    Intent goToVigud = new Intent(context, PuntoVigudActivity.class);
+                    context.startActivity(goToVigud);
+                }else if(slide_heading[position].equalsIgnoreCase("MEDIATECA")){
+                    Intent goToVigud = new Intent(context, PuntoVigudActivity.class);
+                    context.startActivity(goToVigud);
+                }else if(slide_heading[position].equalsIgnoreCase("CARTELERA")){
+                    Intent goToCartelera = new Intent(context, CarteleraActivity.class);
+                    context.startActivity(goToCartelera);
+                }
             }
         });
 

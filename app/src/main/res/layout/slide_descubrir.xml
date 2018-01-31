@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/image_slide_descubrir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_descubrir_cast_brunet" />
+
+    <TextView
+        android:id="@+id/title_slide_descubrir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/metropolis_extrabold"
+        android:text="TITULO"
+        android:textColor="@color/blank"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/desc_slide_descubrir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/title_slide_descubrir"
+        android:layout_marginTop="36dp"
+        android:fontFamily="@font/walkwayultrabold"
+        android:paddingLeft="50dp"
+        android:paddingRight="50dp"
+        android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean ullamcorper scelerisque turpis, eu accumsan risus placerat eget. Aenean et pulvinar turpis. Vivamus at sagittis risus, ultrices blandit lorem. "
+        android:textAlignment="center"
+        android:textColor="@color/blank"
+        android:textSize="16sp" />
+
+</RelativeLayout>
