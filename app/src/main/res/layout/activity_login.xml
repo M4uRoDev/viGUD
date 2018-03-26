@@ -8,6 +8,7 @@
     tools:context="com.example.estudiante.vigud.PrincipalActivity">
 
     <TextView
+        android:id="@+id/debug"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/metropolis_extrabold"
@@ -19,7 +20,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.279" />
+        app:layout_constraintVertical_bias="0.275" />
 
     <Button
         android:id="@+id/button"

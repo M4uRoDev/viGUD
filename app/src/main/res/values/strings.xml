@@ -38,6 +38,18 @@
     <string name="descript_cartelera_logo">cartelera logo</string>
     <string name="title_cartelera">CARTELERA</string>
 
+    <string name="descript_event_img">img evento</string>
+
+    <!-- MODO EJEMPLO EVENTO -->
+    <string name="title_evento">PABLO SIMONETTI</string>
+    <string name="detail_evento">18 NOV / 9PM / $5.000 </string>
+    <string name="location_evento">CENTRO CULTURAL PALACIO RIOJA</string>
+    <string name="desc_evento">El destacado escritor chileno Pablo Simonetti presentará en el Centro Cultural Palacio Rioja en Viña del Mar su última novela titulada "Desastres naturales", un libro que narra la historia de Marco, el personaje principal, un hombre proveniente de una familia conseradora que presenta una mirada retrospectia hacia la precaria relación que sostuvo con su padre a lo largo de su infancia, adolecencia y madurez.</string>
+
+    <string name="btn_agendar">AGENDAR</string>
+    <string name="btn_comprar_entrada">COMPRAR ENTRADA</string>
+    <string name="btn_ir">IR</string>
+
     <string name="title_puntos_vigud">PUNTOS VIGUD</string>
 
     <string name="loading">CARGANDO...</string>
@@ -46,4 +58,14 @@
     <string name="dialog_gps_message">Esta aplicación requiere de la localización de tu dispositivo para ofrecerte alertas personalizadas. Esto te permitirá experimentar integramente la aplicación.</string>
     <string name="dialog_gps_accept">Aceptar</string>
     <string name="dialog_gps_cancel">Cancelar</string>
+
+    <string name="switch_notification">switch_notification</string>
+
+    <string name="preference_file_key">config_app</string>
+
+    <string name="title_palacio_rioja">PALACIO RIOJA</string>
+    <string name="descript_palacio_rioja">Museo de época, que da testimonio de la arquitectura y mobiliario vigentes en Chile a comienzos del siglo XX, así como de estilo propio de ricos comerciantes de esos años. Su construcción es de estilo neoclásico francés, fue la residencia de la familia Rioja.</string>
+    <string name="menu_desc">*</string>
+    <string name="title_descubrir">DESCUBRIR</string>
 </resources>
+
